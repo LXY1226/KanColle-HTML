@@ -1,0 +1,21 @@
+#div_loadline{
+	width: 800px;
+	height: 480px;
+}
+#div_loadline_border{
+	position: absolute;
+	left: 80px;
+	top: 440px;
+	width: 640px;
+	height: 20px;
+	border: 2px solid #fff;
+}
+
+#div_loadline_line{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 0px;
+	height: 20px;
+	background-color: #25a1a2;
+}
