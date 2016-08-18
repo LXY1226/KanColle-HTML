@@ -50,7 +50,7 @@ $user_id = $params['owner'];
 $user_st = $params['st'];
 
 unset($params);
-echo 'ID:'.$user_id.'<br/>';
+//echo 'ID:'.$user_id.'<br/>';
 		//st:'.urldecode($user_st);
 
 
@@ -62,7 +62,7 @@ curl_setopt ( $dmm_get_ip, CURLOPT_FOLLOWLOCATION, 1 );
 $dmm_get_ip_return = curl_exec ( $dmm_get_ip );
 unset ( $dmm_get_ip );
 $user_ip = $world_ip_list[json_decode(strstr($dmm_get_ip_return,'{'))->api_data->api_world_id - 1];
-echo 'IP:'.$user_ip;
+//echo 'IP:'.$user_ip;
 
 
 $dmm_get_token = curl_init ();
@@ -76,6 +76,7 @@ curl_setopt ( $dmm_get_token, CURLOPT_POSTFIELDS, $login_data );
 $dmm_get_token_return = curl_exec ( $dmm_get_token );
 $json = json_decode(substr(strstr($dmm_get_token_return, ":{"), 1,strrpos($dmm_get_token_return,'}"')))->body;
 $token = json_decode(strstr($json,'{'))->api_token;
-echo '<br/>'.'Token:'.$token;
-
+//echo '<br/>'.'Token:'.$token;
+//echo '<br/>URL:'.'Location:http://'.$user_ip.'/kcs/mainD2.swf?api_token='.$token.'&api_starttime='.time().'000';
+header('Location:http://'.$user_ip.'/kcs/mainD2.swf?api_token='.$token.'&api_starttime='.time().'000');
 ?>
