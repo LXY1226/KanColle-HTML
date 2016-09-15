@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WebP Test</title>
+<script>
+//检测的是一张1x1的有透明度和颜色的WebP
+//检测之后释放内存并把结果放在use_webp变量中
+//也就是说，use_webp这个变量为true的时候
+//基本可以确定支持WebP和透明度了
+	var img = new Image();
+	var use_webp = false;
+	img.src = "data:image/webp;base64,UklGRkwAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSA0AAAABB9DfiP4HIqL/AQAAAFZQOCAYAAAAMAEAnQEqAQABAARATCWkAANwAP73LwAA";
+	img.onload = function() {
+		var result = (img.width > 0) && (img.height > 0);
+		use_webp = result;
+		show_result();
+	};
+	img.onerror = function() {
+		use_webp = false;
+		show_result();
+	};
+	delete img;
+	function show_result() {
+		if (use_webp == true) {
+			document.write("Use WebP!");
+		} else {
+			document.write("Don't Use WebP!");
+		}
+	}
+</script>
+</head>
+</html>
